@@ -1,5 +1,5 @@
-import App from "./app.js";
-import config from "./app/config/index.js";
+const App = require("./app.js");
+const config = require("./app/config/index.js");
 
 (async () => {
     const appInstance = new App();

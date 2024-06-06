@@ -6,5 +6,4 @@ class NotFoundHandler {
         });
     }
 }
-
-export default new NotFoundHandler();
+module.exports = new NotFoundHandler();

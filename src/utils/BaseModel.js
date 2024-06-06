@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+const { Schema, model } = require("mongoose");
 
 class BaseModel {
     constructor(modelName, schemaDefinition, options = {}) {
@@ -21,4 +21,4 @@ class BaseModel {
     }
 }
 
-export default BaseModel;
+module.exports = BaseModel;

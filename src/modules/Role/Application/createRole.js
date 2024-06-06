@@ -1,5 +1,5 @@
-import BaseRepository from "../../../utils/BaseRepository.js";
-import Role from "../role.model.js";
+const BaseRepository = require("../../../utils/BaseRepository.js");
+const Role = require("../role.model.js");
 
 class CreateRole {
     constructor() {
@@ -28,4 +28,4 @@ class CreateRole {
     }
 }
 
-export default new CreateRole();
+module.exports = new CreateRole();

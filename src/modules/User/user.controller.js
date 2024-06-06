@@ -1,8 +1,9 @@
-import CreateUser from "./Application/CreateUser.js";
-import ReadUser from "./Application/ReadUser.js";
+const CreateUser = require("./Application/CreateUser.js");
+const LoginUser = require("./Application/LoginUser.js");
+const ReadUser = require("./Application/ReadUser.js");
 
 class UserController {
-    create = async (req, res, next) => {
+    async create(req, res, next) {
         try {
             const result = await CreateUser.execute(req.body);
 
@@ -13,9 +14,9 @@ class UserController {
         } catch (error) {
             next(error);
         }
-    };
+    }
 
-    read = async (req, res, next) => {
+    async read(req, res, next) {
         try {
             const result = await ReadUser.execute();
 
@@ -26,33 +27,22 @@ class UserController {
         } catch (error) {
             next(error);
         }
-    };
+    }
 
-    login = async (req, res, next) => {
+    async login(req, res, next) {
         try {
-            const { email, password } = req.body;
+            const user = await LoginUser.execute(req.body);
 
-            const user = await this.userRepository.findOne({ email });
-
-            if (!user) {
-                return res.status(404).json({ message: "User not found" });
-            }
-
-            const isMatch = await comparePassword(password, user.password);
-
-            if (!isMatch) {
-                return res.status(401).json({ message: "Invalid credentials" });
-            }
+            console.log("User after login ", user);
 
             res.status(200).json({
                 message: "Login successful",
-
-                user: { id: user.id, email: user.email },
+                user,
             });
         } catch (error) {
             next(error);
         }
-    };
+    }
 }
 
-export default new UserController();
+module.exports = new UserController();

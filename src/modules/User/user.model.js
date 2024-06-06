@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import BaseModel from "../../utils/BaseModel.js";
 
 const roleSchemaDefinition = {
@@ -17,7 +18,6 @@ const roleSchemaDefinition = {
     password: {
         type: String,
         minLength: 4,
-        maxLength: 20,
         required: [true, "please enter a password"],
     },
     roleId: {

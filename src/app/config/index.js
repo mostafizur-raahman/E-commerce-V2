@@ -11,4 +11,5 @@ export default {
     jwt_secret_key: process.env.JWT_SECRET_KEY,
     jwt_expires_in: process.env.JWT_EXPIRES_IN,
     app_name: process.env.APP_NAME,
+    salt_round: process.env.SALT_ROUNDS,
 };

@@ -4,11 +4,11 @@ class BaseModel {
     constructor(modelName, schemaDefinition, options = {}) {
         const baseSchema = new Schema(
             {
+                ...schemaDefinition,
                 isDeleted: {
                     type: Boolean,
                     default: false,
                 },
-                ...schemaDefinition,
             },
             { timestamps: true, ...options }
         );

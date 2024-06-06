@@ -1,6 +1,6 @@
-import express from "express";
-import RoleController from "./role.controller.js";
-// import { AuthMiddleware } from "../../app/middleware/Auth.js";
+const express = require("express");
+const RoleController = require("./role.controller.js");
+// const { AuthMiddleware } = require("../../app/middleware/Auth.js");
 
 const router = express.Router();
 
@@ -9,4 +9,4 @@ const router = express.Router();
 router.post("/create-role", RoleController.create);
 router.get("/", RoleController.read);
 
-export const RoleRoutes = router;
+module.exports = { RoleRoutes: router };

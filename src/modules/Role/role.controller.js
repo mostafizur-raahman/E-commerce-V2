@@ -1,8 +1,8 @@
-import ReadRole from "./Application/readRole.js";
-import CreateRole from "./Application/createRole.js";
+const ReadRole = require("./Application/readRole.js");
+const CreateRole = require("./Application/createRole.js");
 
 class RoleController {
-    create = async (req, res, next) => {
+    async create(req, res, next) {
         try {
             const result = await CreateRole.execute(req.body);
 
@@ -13,9 +13,9 @@ class RoleController {
         } catch (error) {
             next(error);
         }
-    };
+    }
 
-    read = async (req, res, next) => {
+    async read(req, res, next) {
         try {
             const result = await ReadRole.execute();
 
@@ -26,7 +26,7 @@ class RoleController {
         } catch (error) {
             next(error);
         }
-    };
+    }
 }
 
-export default new RoleController();
+module.exports = new RoleController();

@@ -1,10 +1,10 @@
-import express from "express";
-import cors from "cors";
-import mongoose from "mongoose";
-import config from "./app/config/index.js";
-import globalError from "./app/middleware/GlobalError.js";
-import notFound from "./app/middleware/NotFound.js";
-import router from "./app/routes/index.js";
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const config = require("./app/config/index.js");
+const globalError = require("./app/middleware/GlobalError.js");
+const notFound = require("./app/middleware/NotFound.js");
+const router = require("./app/routes/index.js");
 
 class App {
     constructor() {
@@ -60,4 +60,4 @@ class App {
     }
 }
 
-export default App;
+module.exports = App;

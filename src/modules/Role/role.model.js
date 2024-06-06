@@ -1,4 +1,4 @@
-import BaseModel from "../../utils/BaseModel.js";
+const BaseModel = require("../../utils/BaseModel.js");
 
 const roleSchemaDefinition = {
     name: {
@@ -16,4 +16,4 @@ class RoleModel extends BaseModel {
 
 const Role = new RoleModel().getModel();
 
-export default Role;
+module.exports = Role;

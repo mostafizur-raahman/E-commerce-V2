@@ -8,4 +8,4 @@ class GlobalErrorHandler {
     }
 }
 
-export default new GlobalErrorHandler();
+module.exports = new GlobalErrorHandler();

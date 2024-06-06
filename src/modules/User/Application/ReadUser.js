@@ -1,5 +1,5 @@
-import BaseRepository from "../../../utils/BaseRepository.js";
-import User from "../user.model.js";
+const BaseRepository = require("../../../utils/BaseRepository.js");
+const User = require("../user.model.js");
 
 class ReadUser {
     constructor() {
@@ -15,4 +15,4 @@ class ReadUser {
     }
 }
 
-export default new ReadUser();
+module.exports = new ReadUser();

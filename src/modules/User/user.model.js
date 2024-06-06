@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import BaseModel from "../../utils/BaseModel.js";
+const mongoose = require("mongoose");
+const BaseModel = require("../../utils/BaseModel.js");
 
 const roleSchemaDefinition = {
     name: {
@@ -35,4 +35,4 @@ class UserModel extends BaseModel {
 
 const User = new UserModel().getModel();
 
-export default User;
+module.exports = User;

@@ -1,6 +1,6 @@
-import BaseRepository from "../../../utils/BaseRepository.js";
-import { hashPassword } from "../../../utils/hashing.js";
-import User from "../user.model.js";
+const BaseRepository = require("../../../utils/BaseRepository.js");
+const { hashPassword } = require("../../../utils/hashing.js");
+const User = require("../user.model.js");
 
 class CreateUser {
     constructor() {
@@ -29,4 +29,4 @@ class CreateUser {
     }
 }
 
-export default new CreateUser();
+module.exports = new CreateUser();

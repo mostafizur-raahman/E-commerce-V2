@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const { mongoose } = require("mongoose");
 
 class BaseRepository {
     constructor(model) {
@@ -211,7 +211,7 @@ class BaseRepository {
         console.groupEnd(this.model.modelName, "findOneByQuery");
 
         try {
-            const doc = await this.model.findOne(query);
+            const doc = await this.model.findOne(query).lean().exec();
 
             return doc;
         } catch (error) {
@@ -348,5 +348,4 @@ class BaseRepository {
         return _date;
     }
 }
-
-export default BaseRepository;
+module.exports = BaseRepository;

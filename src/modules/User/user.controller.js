@@ -1,4 +1,5 @@
 import CreateUser from "./Application/CreateUser.js";
+import ReadUser from "./Application/ReadUser.js";
 
 class UserController {
     create = async (req, res, next) => {
@@ -16,6 +17,8 @@ class UserController {
 
     read = async (req, res, next) => {
         try {
+            const result = await ReadUser.execute();
+
             res.status(200).json({
                 message: "User fetched successfully",
                 data: result,

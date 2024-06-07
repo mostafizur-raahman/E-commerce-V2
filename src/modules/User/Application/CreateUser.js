@@ -17,9 +17,9 @@ class CreateUser {
 
         data.password = await hashPassword(password);
 
-        // if (isExist) {
-        //     throw new Error("User already exist");
-        // }
+        if (isExist) {
+            throw new Error("User already exist");
+        }
 
         const projection = this.repository.defaultProjection;
 

@@ -42,7 +42,6 @@ class App {
         try {
             await mongoose.connect(config.mongoURI, {
                 useNewUrlParser: true,
-                useUnifiedTopology: true,
             });
             console.log("MongoDB connected");
         } catch (error) {
@@ -54,7 +53,7 @@ class App {
     listen() {
         this.app.listen(config.port, () => {
             console.log(
-                `${config.app_name} is listening on port ${config.port}`
+                `${config.appName} is listening on port ${config.port}`
             );
         });
     }

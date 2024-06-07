@@ -9,7 +9,9 @@ class ReadRole {
     async execute() {
         const projection = this.roleRepository.defaultProjection;
 
-        const result = await this.roleRepository.findAll(projection);
+        const result = await this.roleRepository.findAllWithPaigination(
+            projection
+        );
 
         return result;
     }

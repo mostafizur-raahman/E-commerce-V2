@@ -3,9 +3,10 @@ const config = require("../app/config/index.js");
 
 // Hashing function
 const hashPassword = async (password) => {
-    console.debug(config.salt_round, password);
-
-    const hashedPassword = bcrypt.hash(password, parseInt(config.salt_round));
+    const hashedPassword = bcrypt.hash(
+        password,
+        parseInt(config.bcryptSaltRounds)
+    );
     return hashedPassword;
 };
 

@@ -13,4 +13,4 @@ const config = {
     appName: process.env.APP_NAME,
 };
 
-module.exports = config; // Only export config (optional)
+module.exports = config;

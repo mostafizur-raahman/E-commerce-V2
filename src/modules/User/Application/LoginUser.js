@@ -25,8 +25,8 @@ class LoginUser {
         }
 
         // generate token
-        const token = jwt.sign({ _id: user._id }, config.jwt_secret_key, {
-            expiresIn: config.jwt_expires_in,
+        const token = jwt.sign({ _id: user._id }, config.jwtSecretKey, {
+            expiresIn: config.jwtExpiresIn,
         });
 
         console.log(token); // maa0ahakndnhaaiapjlam

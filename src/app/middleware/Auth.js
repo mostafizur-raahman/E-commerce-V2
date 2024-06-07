@@ -24,7 +24,7 @@ class AuthMiddleware {
         }
 
         try {
-            const decoded = jwt.verify(token, config.jwt_secret_key);
+            const decoded = jwt.verify(token, config.jwtSecretKey);
 
             console.debug("decoded: ", decoded);
 

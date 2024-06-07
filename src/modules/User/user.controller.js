@@ -18,7 +18,17 @@ class UserController {
 
     async read(req, res, next) {
         try {
-            const result = await ReadUser.execute();
+            const { page, limit, sort, ...query } = req.query;
+
+            const options = {
+                projection: null,
+                query,
+                page: parseInt(page, 10) || 1,
+                limit: parseInt(limit, 10) || 10,
+                sort: sort ? JSON.parse(sort) : {},
+            };
+
+            const result = await ReadUser.execute(options);
 
             res.status(200).json({
                 message: "User fetched successfully",

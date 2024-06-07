@@ -150,6 +150,31 @@ class BaseRepository {
         }
     }
 
+    async findAllWithPaigination(
+        projection = this.defaultProjection,
+        query = {},
+        options = {}
+    ) {
+        const { page = 1, limit = 10, sort = {} } = options;
+        const skip = (page - 1) * limit;
+
+        const results = await this.model
+            .find(query, projection)
+            .skip(skip)
+            .limit(limit)
+            .sort(sort);
+
+        const totalCount = await this.model.countDocuments(query);
+        const totalPages = Math.ceil(totalCount / limit);
+
+        return {
+            results,
+            page,
+            totalPages,
+            totalCount,
+        };
+    }
+
     async updateById(id, entity) {
         try {
             const doc = await this.model.findOneAndUpdate(

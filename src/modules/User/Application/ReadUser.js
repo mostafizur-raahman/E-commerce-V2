@@ -6,10 +6,14 @@ class ReadUser {
         this.repository = new BaseRepository(User);
     }
 
-    async execute() {
-        const projection = this.repository.defaultProjection;
+    async execute(options = {}) {
+        const { projection, query, page, limit, sort } = options;
 
-        const result = await this.repository.findAll(projection);
+        const result = await this.repository.findAllWithPaigination(
+            projection,
+            query,
+            { page, limit, sort }
+        );
 
         return result;
     }
